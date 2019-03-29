@@ -62,7 +62,7 @@ class AuthManager {
    * @return {Object}
    */
   getSerializer (name) {
-    const serializer = Serializers[name] || this._serializers[name]
+    const serializer = this._serializers[name] || Serializers[name]
     if (!serializer) {
       throw GE.RuntimeException.incompleteConfig([`${name} serializer`], 'config/auth.js', 'auth')
     }
@@ -79,7 +79,7 @@ class AuthManager {
    * @return {Object}
    */
   getScheme (name) {
-    const scheme = Schemes[name] || this._schemes[name]
+    const scheme = this._schemes[name] || Schemes[name]
     if (!scheme) {
       throw GE.RuntimeException.incompleteConfig([`${name} scheme`], 'config/auth.js', 'auth')
     }
